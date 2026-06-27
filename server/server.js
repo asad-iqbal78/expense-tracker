@@ -4,6 +4,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const expenseRoutes = require("./routes/expenseRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // ✅ Routes - sirf ek baar
 app.use("/api/auth", authRoutes);
 app.use("/api/expenses", expenseRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
