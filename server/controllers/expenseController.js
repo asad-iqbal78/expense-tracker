@@ -18,8 +18,7 @@ const addExpense = async (req, res) => {
 
 const getExpenses = async (req, res) => {
     try{
-        const expenses = await Expense.find();
-        userId = req.user.id; // Assuming user ID is stored in req.user after authentication
+        const expenses = await Expense.find({ userId: req.user.id });
         res.status(200).json(expenses);
     }catch(error){
         res.status(500).json({ message: error.message });
