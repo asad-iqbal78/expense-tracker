@@ -20,6 +20,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/expenses", expenseRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 app.use("/api/income", incomeRoutes);
+
 // Test Route
 app.get("/", (req, res) => {
   res.send("Expense Tracker API is running...");
