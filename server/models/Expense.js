@@ -7,12 +7,19 @@ const expenseSchema = new mongoose.Schema(
             ref: 'User',
         },
         title: String,
-        amount: Number,
+        amount: {
+            type: Number,
+            required: true,
+        },
         type: {
             type: String,
             enum: ['income', 'expense'],
+            required: true,
         },
-        category: String,
+        category: {
+            type: String,
+            required: true,
+        },
         date: {
             type: Date,
             default: Date.now
