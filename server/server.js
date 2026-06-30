@@ -5,6 +5,7 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const expenseRoutes = require("./routes/expenseRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
+const incomeRoutes = require("./routes/incomeRoutes");
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/expenses", expenseRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/income", incomeRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
