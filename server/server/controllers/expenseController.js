@@ -19,7 +19,8 @@ const addExpense = async (req, res) => {
 const getExpenses = async (req, res) => {
     try{
         const search = req.query.search || '';
-        const expenses = await Expense.find({ userId: req.user.id });
+        const filter = search ? { title: { $regex: search, $options: 'i' }, userId: req.user.id } : { userId: req.user.id };
+        const expenses = await Expense.find(filter).sort({ createdAt: -1 });
         if(!expenses || expenses.length === 0) {
             return res.status(404).json({ message: 'No expenses found for this user' });
         }
